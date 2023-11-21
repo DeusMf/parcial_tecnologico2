@@ -12,21 +12,23 @@ class pulsador {
   
   public:
     pulsador(int ledPin, int buttonPin) {
-        //Inicializar Variables
-      ledState = HIGH;
-      
-      buttonState ;
-      lastButtonState = LOW;
-      lastDebounceTime = 0;
-      debounceDelay = 50;
-      //Guarda los pines Proporcionados
-      this->ledPin = ledPin;
-      this->buttonPin = buttonPin;
-      //Configura pines como entrada y salida
-      pinMode(ledPin, OUTPUT);
-      digitalWrite(ledPin, ledState);
-      pinMode(buttonPin, INPUT);
-    }
+  // Inicializar Variables
+  ledState = HIGH;
+  buttonState = LOW; // Asignar un valor inicial a buttonState
+  
+  lastButtonState = LOW;
+  lastDebounceTime = 0;
+  debounceDelay = 50;
+  
+  // Guardar los pines proporcionados
+  this->ledPin = ledPin;
+  this->buttonPin = buttonPin;
+  
+  // Configurar pines como entrada y salida
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, ledState);
+  pinMode(buttonPin, INPUT);
+}
     
     void LecturadelPulsador() {
         //Lee el estado del pulsador
