@@ -15,8 +15,8 @@ void PWM::setup() {
 
 void PWM::setColor(int red, int green, int blue) {
 
-    analogWrite(_redPin, red); // Establece el brillo del LED rojo
-    analogWrite(_greenPin, green); // Establece el brillo del LED verde
-    analogWrite(_bluePin, blue); // Establece el brillo del LED azul
+    ledcWrite(_redPin, red); // Establece el brillo del LED rojo
+    ledcWrite(_greenPin, green); // Establece el brillo del LED verde
+    ledcWrite(_bluePin, blue); // Establece el brillo del LED azul
 
 } 
