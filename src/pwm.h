@@ -5,15 +5,14 @@
 
 class PWM {
   public:
-    PWM(int ledPin, int , int); // Constructor de la clase PWM
+    PWM(int redPin, int greenPin, int bluePin); // Constructor de la clase PWM
     void setup(); // Método para realizar la configuración inicial
-    void loop(); // Método que se ejecuta en bucle
-  
+    void setColor(int red, int green, int blue); // Método para establecer el color del LED
+
   private:
-    int _ledPin; // Variable para almacenar el pin del LED
-    int _freq; // Variable para almacenar la frecuencia del PWM
-    int _ledChannel; // Variable para almacenar el canal del PWM
-    int _resolution; // Variable para almacenar la resolución del PWM
+    int _redPin; // Variable para almacenar el pin del LED rojo
+    int _greenPin; // Variable para almacenar el pin del LED verde
+    int _bluePin; // Variable para almacenar el pin del LED azul
 };
 
-#endif
+#endif  
