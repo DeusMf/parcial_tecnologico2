@@ -9,7 +9,7 @@ public:
 
 
   bool getButtonState(); // Agrega la declaración de la función getButtonState
-
+  int getLedState();
 private:
   int buttonPin;
   int lastButtonState;

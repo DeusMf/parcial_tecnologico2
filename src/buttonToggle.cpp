@@ -30,3 +30,6 @@ bool ButtonToggle::getButtonState() {
   lastButtonState = reading;
   return band;
 }
+int ButtonToggle::getLedState() {
+  return ledState;
+}

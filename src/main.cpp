@@ -22,7 +22,7 @@ PWM ledRGB(RED_PIN, GREEN_PIN, BLUE_PIN, 0, 1, 2);
 
 int redIntensity = 0;
 int greenIntensity = 0;
-int blueIntensity = 0;
+int blueIntensity = 0;  
 
 void setup() {
   Serial.begin(115200); // Inicializar el monitor serial
@@ -33,16 +33,12 @@ void setup() {
 }
 
 void loop() {
-   Serial.println(String(redButton.getButtonState()));
-  // delay(10);
-  // Leer el estado de los pulsadores
-  /*redButton.loop();
-  greenButton.loop();
-  blueButton.loop();
-  intensityButton.loop();
-
+   intensityButton.getButtonState(); 
+   int band = intensityButton.getLedState();
   // Aumentar la intensidad del color correspondiente al pulsador presionado
-  if (redButton.getButtonState() == HIGH) {
+  if (band)
+  {
+    if (redButton.getButtonState() == HIGH) {
     redIntensity += 10;
     Serial.println("Botón rojo presionado");
   } else if (greenButton.getButtonState() == HIGH) {
@@ -52,30 +48,20 @@ void loop() {
     blueIntensity += 10;
     Serial.println("Botón azul presionado");
   }
-
-  // Disminuir la intensidad general del LED si se presiona el pulsador de intensidad
-  if (intensityButton.getButtonState() == HIGH) {
+  }else{
+    if (redButton.getButtonState() == HIGH) {
     redIntensity -= 10;
+    Serial.println("Botón rojo presionado");
+  } else if (greenButton.getButtonState() == HIGH) {
     greenIntensity -= 10;
+    Serial.println("Botón verde presionado");
+  } else if (blueButton.getButtonState() == HIGH) {
     blueIntensity -= 10;
-    Serial.println("Botón de intensidad presionado");
+    Serial.println("Botón azul presionado");
   }
-
-  // Asegurarse de que la intensidad esté dentro del rango permitido
-  redIntensity = constrain(redIntensity, 0, 255);
-  greenIntensity = constrain(greenIntensity, 0, 255);
-  blueIntensity = constrain(blueIntensity, 0, 255);
-
-  // Establecer la intensidad de cada color del LED RGB
+  }
+  
   ledRGB.setColor(redIntensity, greenIntensity, blueIntensity);
 
-  // Imprimir información de depuración
-  Serial.print("Intensidad rojo: ");
-  Serial.println(redIntensity);
-  Serial.print("Intensidad verde: ");
-  Serial.println(greenIntensity);
-  Serial.print("Intensidad azul: ");
-  Serial.println(blueIntensity);
-
-  delay(100); // Agregar un pequeño retraso para evitar una salida de información excesiva en el monitor serial*/
+ 
 }
